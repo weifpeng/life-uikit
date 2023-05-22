@@ -15,7 +15,12 @@ export const TagManagement: IColorTagComponent["TagManagement"] = ({
 }) => {
   const { uiKit } = useCtx();
   const [activeInfo, setActiveInfo] = useState<ITagInfo | null>(null);
+  const [loading, setLoading] = useState(false);
   const inputRef = useRef<any>();
+
+  useEffect(() => {
+    setActiveInfo(null);
+  }, [tagsList]);
 
   useEffect(() => {
     if (!inputRef.current) return;
@@ -28,8 +33,27 @@ export const TagManagement: IColorTagComponent["TagManagement"] = ({
     setActiveInfo({ ...activeInfo!, name: val });
   };
 
+  const handleSave = async () => {
+    try {
+      setLoading(true);
+      await onUpdate?.(activeInfo!);
+    } catch {
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleRemove=async (id:string)=>{
+    try{
+      setLoading(true)
+      await onDelete?.(id)
+    }catch{}finally{
+      setLoading(false)
+    }
+  }
+
   return (
-    <div>
+    <uiKit.Spin spinning={loading}>
       <div className=" text-lg font-bold">标签管理</div>
       <div className=" mt-4 h-72 overflow-y-auto pt-1 ">
         {tagsList?.map((t) => (
@@ -68,10 +92,7 @@ export const TagManagement: IColorTagComponent["TagManagement"] = ({
                           width: 14,
                           marginRight: 8.5,
                         }}
-                        onClick={(e: any) => {
-                          e.stopPropagation();
-                          onUpdate?.(activeInfo);
-                        }}
+                        onClick={handleSave}
                       />
                       <CloseSvg
                         style={{
@@ -97,8 +118,9 @@ export const TagManagement: IColorTagComponent["TagManagement"] = ({
                   {t.name}
                   <div
                     className=" absolute right-1 hidden group-hover:block transition-all text-gray-400 hover:text-red-500 "
-                    onClick={() => {
-                      onDelete?.(activeInfo?.id!);
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleRemove?.(t?.id!);
                     }}
                   >
                     <TrashSvg />
@@ -109,6 +131,6 @@ export const TagManagement: IColorTagComponent["TagManagement"] = ({
           </div>
         ))}
       </div>
-    </div>
+    </uiKit.Spin>
   );
 };

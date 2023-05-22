@@ -4,7 +4,7 @@ import {
   Button as ButtonBase,
   Dropdown as DropdownBase,
   Input as InputBase,
-  Modal,
+  Modal as ModalBase,
   Spin,
 } from "antd";
 import React from "react";
@@ -43,6 +43,10 @@ export const Input: IBaseUiKit["Input"] = React.forwardRef((props, ref) => {
 
 export const Button: IBaseUiKit["Button"] = (props) => {
   return <ButtonBase {...props} />;
+};
+
+export const Modal: IBaseUiKit["Button"] = (props) => {
+  return <ModalBase destroyOnClose {...props} />;
 };
 
 export const BaseUikit: IBaseUiKit = {

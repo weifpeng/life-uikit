@@ -48,7 +48,7 @@ const TagOption: React.FC<ITagOptionProps> = ({ info, checked, onClick }) => {
     >
       <div className="flex items-center">
         <div
-          className="w-2 h-2 rounded-full border mr-2"
+          className="w-2 h-2 rounded-full   mr-2"
           style={{ backgroundColor: info.color }}
         ></div>
         {info.name}
@@ -90,7 +90,7 @@ export const ColorPikcer: IColorTagComponent["TagPicker"] = ({
           suffix={<SearchSvg style={{ color: "#adbacc" }} />}
         />
       </div>
-      <div className="w-full h-52 overflow-y-auto ">
+      <div className="w-full max-h-52  overflow-y-auto ">
         {tagsList?.map((t) => (
           <TagOption
             key={t.id}
@@ -101,6 +101,12 @@ export const ColorPikcer: IColorTagComponent["TagPicker"] = ({
             }}
           />
         ))}
+        {!tagsList?.length && (
+          <div className="w-full h-full flex items-center justify-center text-gray-400 py-5">
+            <div></div>
+            <span>暂无数据</span>
+          </div>
+        )}
       </div>
       <ActionBar
         leftSvg={<PluseSvg />}
@@ -108,12 +114,14 @@ export const ColorPikcer: IColorTagComponent["TagPicker"] = ({
         text="创建标签"
         onClick={onCreateClick}
       />
-      <ActionBar
-        leftSvg={<Cog />}
-        rightSvg={<ChevronRight />}
-        text="管理标签"
-        onClick={onManagementClick}
-      />
+      {Boolean(tagsList?.length )&& (
+        <ActionBar
+          leftSvg={<Cog />}
+          rightSvg={<ChevronRight />}
+          text="管理标签"
+          onClick={onManagementClick}
+        />
+      )}
     </div>
   );
 };

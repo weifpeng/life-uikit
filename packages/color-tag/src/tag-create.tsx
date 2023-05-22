@@ -95,7 +95,7 @@ export const TagCreate: IColorTagComponent["TagCreate"] = ({
       </div>
       <div className="px-3 ">
         <p className=" text-gray-500 text-xs py-4">标签名称</p>
-        <uiKit.Input value={value?.name} onChange={setName} />
+        <uiKit.Input value={value?.name} onChange={setName} placeholder="标签名称" />
       </div>
       <div className="px-3 ">
         <p className=" text-gray-500 text-xs py-4">标签颜色</p>

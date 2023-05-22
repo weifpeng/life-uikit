@@ -7,8 +7,7 @@ import { ITagInfo, ITagService } from "../base/services";
 import { IBaseProps, ICallback } from "../base/components";
 
 interface TagItemsProps extends IBaseProps {
-  value?: string[];
-  onChange?: (res: string[]) => void;
+  onRemove?: (id: string) => void;
   tagsList?: ITagInfo[];
   readOnly?: boolean;
 }
@@ -29,7 +28,7 @@ type TagPickerType = React.FC<TagPickerProps>;
 interface TagManagementProps extends IBaseProps, ICallback {
   tagsList?: ITagInfo[];
   onUpdate?: (info: ITagInfo) => Promise<any>;
-  onDelete?: (id: string) => Promise<any>; 
+  onDelete?: (id: string) => Promise<any>;
 }
 
 type TagManagementType = React.FC<TagManagementProps>;

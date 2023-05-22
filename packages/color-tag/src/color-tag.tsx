@@ -1,9 +1,11 @@
 import PlusSvg from "@uikit/assets/svg/plus.svg";
+import EmptySvg from "@uikit/assets/svg/empty.svg";
 import { useCtx } from "@uikit/context";
 import { ITagInfo } from "@uikit/types";
 import type { ColorTagType } from "@uikit/types/color-tag";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import useSwr from "swr";
+import cn from "classnames";
 
 export const ColorTag: ColorTagType = ({
   slots,
@@ -14,7 +16,7 @@ export const ColorTag: ColorTagType = ({
 }) => {
   const {
     uiKit,
-    services: { getTagList, createTag },
+    services: { getTagList, createTag, updateTag, deleteTag },
   } = useCtx();
 
   const { data, error, mutate } = useSwr("tag-list", () => getTagList());
@@ -33,6 +35,7 @@ export const ColorTag: ColorTagType = ({
       const data = await createTag(newTagInfo as ITagInfo);
       onChange?.([...value, data?.id]);
       await mutate();
+      setNewTagInfo({ name: "", color: "" });
     } catch (e) {
     } finally {
       setShowCreate(false);
@@ -40,38 +43,67 @@ export const ColorTag: ColorTagType = ({
     }
   };
 
+  const handleUpdate = async (info: Partial<ITagInfo>) => {
+    try {
+      const { id, ...rest } = info;
+      await updateTag(id!, rest!);
+      await mutate();
+    } catch (e) {}
+  };
+
+  const handleDelete = async (id: string) => {
+    try {
+      await deleteTag(id);
+      await mutate();
+    } catch (e) {}
+  };
+
+  const handleRemove = async (id: string) => {
+    onChange?.(value.filter((v) => v !== id));
+  };
+
+  const selectedTagList = useMemo(() => {
+    return data?.data?.filter((d) => value?.includes(d.id));
+  }, [data, value]);
+
   return (
-    <div>
+    <div className={cn("flex items-center", className)} style={style}>
+      <slots.TagItems tagsList={selectedTagList} onRemove={handleRemove} />
       <uiKit.Dropdown
         visible={dropdownVisible}
         onVisibleChange={setDropdownVisible}
-        overlay={() =>
-          showCreate ? (
-            <uiKit.Spin spinning={createLoading}>
-              <slots.TagCreate
-                cancleCallback={() => {
-                  setShowCreate(false);
+        overlay={() => (
+          <>
+            {showCreate && (
+              <>
+                <uiKit.Spin spinning={createLoading}>
+                  <slots.TagCreate
+                    cancleCallback={() => {
+                      setShowCreate(false);
+                    }}
+                    value={newTagInfo}
+                    onChange={setNewTagInfo}
+                    successCallback={handleCreate}
+                  />
+                </uiKit.Spin>
+              </>
+            )}
+            {!showCreate && (
+              <slots.TagPicker
+                tagsList={data?.data}
+                value={value}
+                onChange={onChange}
+                onCreateClick={() => {
+                  setShowCreate(true);
                 }}
-                value={newTagInfo}
-                onChange={setNewTagInfo}
-                successCallback={handleCreate}
+                onManagementClick={() => {
+                  setShowManagement(true);
+                  setDropdownVisible(false);
+                }}
               />
-            </uiKit.Spin>
-          ) : (
-            <slots.TagPicker
-              tagsList={data?.data}
-              value={value}
-              onChange={onChange}
-              onCreateClick={() => {
-                setShowCreate(true);
-              }}
-              onManagementClick={() => {
-                setShowManagement(true);
-                setDropdownVisible(false);
-              }}
-            />
-          )
-        }
+            )}
+          </>
+        )}
         placement="bottomLeft"
       >
         <div className=" w-5 h-5 rounded-full hover:bg-gray-100 cursor-pointer border flex justify-center items-center bg-white active:bg-gray-200 transition-all ">
@@ -86,8 +118,15 @@ export const ColorTag: ColorTagType = ({
         onCancel={() => {
           setShowManagement(false);
         }}
+        onOk={() => {
+          setShowManagement(false);
+        }}
       >
-        <slots.TagManagement tagsList={data?.data} />
+        <slots.TagManagement
+          tagsList={data?.data}
+          onUpdate={handleUpdate}
+          onDelete={handleDelete}
+        />
       </uiKit.Modal>
     </div>
   );
