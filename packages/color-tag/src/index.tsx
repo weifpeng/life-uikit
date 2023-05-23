@@ -1,4 +1,4 @@
-import { IColorTagProps } from "@uikit/types/color-tag";
+import { IColorTagProps } from "@life-uikit/types/color-tag";
 import React from "react";
 import { ColorPikcer } from "./color-picker";
 import { TagCreate } from "./tag-create";

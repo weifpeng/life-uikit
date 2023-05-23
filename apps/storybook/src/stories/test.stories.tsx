@@ -1,8 +1,8 @@
 import { Meta } from "@storybook/react";
-import { ColorTag } from "@uikit/color-tag/src";
-import { BaseUikit } from "@uikit/antd";
-import { Context } from "@uikit/context";
-import { ITagInfo, ITagService } from "@uikit/types";
+import { ColorTag } from "@life-uikit/color-tag/src";
+import { BaseUikit } from "@life-uikit/antd";
+import { Context } from "@life-uikit/context";
+import { ITagInfo, ITagService } from "@life-uikit/types";
 import { useRef, useState } from "react";
 
 const COLOR_TAG_LIST: string[] = [

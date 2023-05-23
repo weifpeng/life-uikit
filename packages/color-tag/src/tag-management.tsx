@@ -1,12 +1,12 @@
-import { useCtx } from "@uikit/context";
-import { IColorTagComponent } from "@uikit/types/color-tag";
+import { useCtx } from "@life-uikit/context";
+import { IColorTagComponent } from "@life-uikit/types/color-tag";
 import cn from "classnames";
 import { useEffect, useRef, useState } from "react";
-import TrashSvg from "@uikit/assets/svg/trash.svg";
+import TrashSvg from "@life-uikit/assets/svg/trash.svg";
 
-import CheckSvg from "@uikit/assets/svg/check.svg";
-import CloseSvg from "@uikit/assets/svg/close.svg";
-import { ITagInfo } from "@uikit/types";
+import CheckSvg from "@life-uikit/assets/svg/check.svg";
+import CloseSvg from "@life-uikit/assets/svg/close.svg";
+import { ITagInfo } from "@life-uikit/types";
 
 export const TagManagement: IColorTagComponent["TagManagement"] = ({
   tagsList,

@@ -1,5 +1,5 @@
 {
-  "name": "@uikit/types",
+  "name": "@life-uikit/types",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "@types/react": "^18.2.6"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

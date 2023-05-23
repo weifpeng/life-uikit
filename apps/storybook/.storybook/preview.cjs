@@ -1,4 +1,4 @@
-import "@uikit/global-css/tailwind-css/input.css";
+import "@life-uikit/global-css/tailwind-css/input.css";
 import "../global.css";
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

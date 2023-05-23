@@ -1,5 +1,5 @@
 {
-  "name": "@uikit/storybook",
+  "name": "@life-uikit/storybook",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -10,11 +10,11 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@uikit/antd": "workspace:*",
-    "@uikit/color-tag": "workspace:*",
-    "@uikit/context": "workspace:*",
-    "@uikit/global-css": "workspace:*",
-    "@uikit/types": "workspace:*",
+    "@life-uikit/antd": "workspace:*",
+    "@life-uikit/color-tag": "workspace:*",
+    "@life-uikit/context": "workspace:*",
+    "@life-uikit/global-css": "workspace:*",
+    "@life-uikit/types": "workspace:*",
     "antd": "^5.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

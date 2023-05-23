@@ -1,5 +1,5 @@
-import { useCtx } from "@uikit/context";
-import { IBaseUiKit } from "@uikit/types";
+import { useCtx } from "@life-uikit/context";
+import { IBaseUiKit } from "@life-uikit/types";
 import {
   Button as ButtonBase,
   Dropdown as DropdownBase,

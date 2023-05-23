@@ -1,5 +1,5 @@
 {
-  "name": "@uikit/antd",
+  "name": "@life-uikit/antd",
   "version": "1.0.0",
   "description": "",
   "main": "index.tsx",
@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@uikit/context": "workspace:*",
-    "@uikit/types": "workspace:*"
+    "@life-uikit/context": "workspace:*",
+    "@life-uikit/types": "workspace:*"
   },
   "peerDependencies": {
     "antd": "^5.5.0",
@@ -19,5 +19,8 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.6"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

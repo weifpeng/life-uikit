@@ -1,5 +1,5 @@
 {
-  "name": "@uikit/context",
+  "name": "@life-uikit/context",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,10 +10,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@uikit/types": "workspace:*",
+    "@life-uikit/types": "workspace:*",
     "react": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.6"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

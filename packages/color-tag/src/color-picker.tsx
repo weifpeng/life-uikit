@@ -1,12 +1,12 @@
-import AddColorTagSvg from "@uikit/assets/svg/add-color-tag.svg";
-import Checked from "@uikit/assets/svg/check.svg";
-import ChevronRight from "@uikit/assets/svg/chevron-right.svg";
-import Cog from "@uikit/assets/svg/cog.svg";
-import PluseSvg from "@uikit/assets/svg/plus.svg";
-import SearchSvg from "@uikit/assets/svg/search.svg";
-import { useCtx } from "@uikit/context";
-import { ITagInfo } from "@uikit/types";
-import { IColorTagComponent } from "@uikit/types/color-tag";
+import AddColorTagSvg from "@life-uikit/assets/svg/add-color-tag.svg";
+import Checked from "@life-uikit/assets/svg/check.svg";
+import ChevronRight from "@life-uikit/assets/svg/chevron-right.svg";
+import Cog from "@life-uikit/assets/svg/cog.svg";
+import PluseSvg from "@life-uikit/assets/svg/plus.svg";
+import SearchSvg from "@life-uikit/assets/svg/search.svg";
+import { useCtx } from "@life-uikit/context";
+import { ITagInfo } from "@life-uikit/types";
+import { IColorTagComponent } from "@life-uikit/types/color-tag";
 import { useMemo } from "react";
 
 interface IActionBarProps {

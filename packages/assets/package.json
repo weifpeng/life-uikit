@@ -1,5 +1,5 @@
 {
-  "name": "@uikit/assets",
+  "name": "@life-uikit/assets",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -7,5 +7,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  }
 }

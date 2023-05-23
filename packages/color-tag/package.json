@@ -1,5 +1,5 @@
 {
-  "name": "@uikit/color-tag",
+  "name": "@life-uikit/color-tag",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -9,10 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@uikit/assets": "workspace:*",
-    "@uikit/context": "workspace:*",
-    "@uikit/global-css": "workspace:*",
-    "@uikit/types": "workspace:*",
+    "@life-uikit/assets": "workspace:*",
+    "@life-uikit/context": "workspace:*",
+    "@life-uikit/global-css": "workspace:*",
+    "@life-uikit/types": "workspace:*",
     "classnames": "^2.3.2",
     "react": "^18.2.0",
     "swr": "^2.1.5"
@@ -30,5 +30,8 @@
     "dist"
   ],
   "main": "./dist/color-tag.es.js",
-  "types": "./dist/packages/color-tag/src/color-tag.d.ts"
+  "types": "./dist/packages/color-tag/src/color-tag.d.ts",
+  "publishConfig": {
+    "access": "public"
+  }
 }

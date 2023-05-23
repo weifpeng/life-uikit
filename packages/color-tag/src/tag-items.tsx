@@ -1,5 +1,5 @@
-import CloseIcon from "@uikit/assets/svg/close.svg";
-import { IColorTagComponent } from "@uikit/types/color-tag";
+import CloseIcon from "@life-uikit/assets/svg/close.svg";
+import { IColorTagComponent } from "@life-uikit/types/color-tag";
 
 export const TagItems: IColorTagComponent["TagItems"] = ({
   tagsList,

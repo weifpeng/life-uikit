@@ -1,7 +1,7 @@
-import PlusSvg from "@uikit/assets/svg/plus.svg";
-import { useCtx } from "@uikit/context";
-import { ITagInfo } from "@uikit/types";
-import type { ColorTagType } from "@uikit/types/color-tag";
+import PlusSvg from "@life-uikit/assets/svg/plus.svg";
+import { useCtx } from "@life-uikit/context";
+import { ITagInfo } from "@life-uikit/types";
+import type { ColorTagType } from "@life-uikit/types/color-tag";
 import cn from "classnames";
 import { useMemo, useState } from "react";
 import useSwr from "swr";

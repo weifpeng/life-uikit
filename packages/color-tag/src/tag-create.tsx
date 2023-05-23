@@ -1,9 +1,9 @@
-import AddColorTag from "@uikit/assets/svg/add-color-tag.svg";
-import ArrowLeft from "@uikit/assets/svg/arrow-left.svg";
-import CheckedSvg from "@uikit/assets/svg/check.svg";
-import { useCtx } from "@uikit/context";
-import { IBaseProps } from "@uikit/types";
-import { IColorTagComponent } from "@uikit/types/color-tag";
+import AddColorTag from "@life-uikit/assets/svg/add-color-tag.svg";
+import ArrowLeft from "@life-uikit/assets/svg/arrow-left.svg";
+import CheckedSvg from "@life-uikit/assets/svg/check.svg";
+import { useCtx } from "@life-uikit/context";
+import { IBaseProps } from "@life-uikit/types";
+import { IColorTagComponent } from "@life-uikit/types/color-tag";
 import cn from "classnames";
 import { useState } from "react";
 
