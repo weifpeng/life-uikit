@@ -1,11 +1,10 @@
 import PlusSvg from "@uikit/assets/svg/plus.svg";
-import EmptySvg from "@uikit/assets/svg/empty.svg";
 import { useCtx } from "@uikit/context";
 import { ITagInfo } from "@uikit/types";
 import type { ColorTagType } from "@uikit/types/color-tag";
+import cn from "classnames";
 import { useMemo, useState } from "react";
 import useSwr from "swr";
-import cn from "classnames";
 
 export const ColorTag: ColorTagType = ({
   slots,
@@ -19,15 +18,17 @@ export const ColorTag: ColorTagType = ({
     services: { getTagList, createTag, updateTag, deleteTag },
   } = useCtx();
 
-  const { data, error, mutate } = useSwr("tag-list", () => getTagList());
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [showCreate, setShowCreate] = useState(false);
   const [showManagement, setShowManagement] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
   const [newTagInfo, setNewTagInfo] = useState<Partial<ITagInfo>>({
     name: "",
     color: "",
   });
   const [createLoading, setCreateLoading] = useState(false);
+
+  const { data, error, mutate } = useSwr(`tag-list`, () => getTagList());
 
   const handleCreate = async () => {
     try {
@@ -36,6 +37,7 @@ export const ColorTag: ColorTagType = ({
       onChange?.([...value, data?.id]);
       await mutate();
       setNewTagInfo({ name: "", color: "" });
+      setSearchValue("");
     } catch (e) {
     } finally {
       setShowCreate(false);
@@ -93,13 +95,18 @@ export const ColorTag: ColorTagType = ({
                 tagsList={data?.data}
                 value={value}
                 onChange={onChange}
-                onCreateClick={() => {
+                onCreateClick={(info) => {
+                  if (info) {
+                    setNewTagInfo(info!);
+                  }
                   setShowCreate(true);
                 }}
                 onManagementClick={() => {
                   setShowManagement(true);
                   setDropdownVisible(false);
                 }}
+                onSearchChange={setSearchValue}
+                searchValue={searchValue}
               />
             )}
           </>

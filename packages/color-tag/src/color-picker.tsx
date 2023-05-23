@@ -1,12 +1,13 @@
-import { useCtx } from "@uikit/context";
-import { IColorTagComponent } from "@uikit/types/color-tag";
-import SearchSvg from "@uikit/assets/svg/search.svg";
-import PluseSvg from "@uikit/assets/svg/plus.svg";
 import AddColorTagSvg from "@uikit/assets/svg/add-color-tag.svg";
+import Checked from "@uikit/assets/svg/check.svg";
 import ChevronRight from "@uikit/assets/svg/chevron-right.svg";
 import Cog from "@uikit/assets/svg/cog.svg";
-import Checked from "@uikit/assets/svg/check.svg";
+import PluseSvg from "@uikit/assets/svg/plus.svg";
+import SearchSvg from "@uikit/assets/svg/search.svg";
+import { useCtx } from "@uikit/context";
 import { ITagInfo } from "@uikit/types";
+import { IColorTagComponent } from "@uikit/types/color-tag";
+import { useMemo } from "react";
 
 interface IActionBarProps {
   leftSvg: React.ReactNode;
@@ -70,6 +71,8 @@ export const ColorPikcer: IColorTagComponent["TagPicker"] = ({
   onCreateClick,
   onManagementClick,
   onChange,
+  onSearchChange,
+  searchValue,
 }) => {
   const { uiKit } = useCtx();
 
@@ -81,6 +84,17 @@ export const ColorPikcer: IColorTagComponent["TagPicker"] = ({
     }
   };
 
+  const filterTagList = useMemo(() => {
+    if (!searchValue) return tagsList;
+    return tagsList?.filter((t) => {
+      return t.name.includes(searchValue);
+    });
+  }, [tagsList, searchValue]);
+
+  const handleQuickCreate = () => {
+    onCreateClick?.({ name: searchValue! });
+  };
+
   return (
     <div className=" w-52">
       <div className="flex items-center justify-between px-2 py-1 border-b border-gray-200 bg-gray-100">
@@ -88,10 +102,13 @@ export const ColorPikcer: IColorTagComponent["TagPicker"] = ({
           size="middle"
           placeholder="快速筛选"
           suffix={<SearchSvg style={{ color: "#adbacc" }} />}
+          onChange={onSearchChange}
+          value={searchValue}
+          onEnter={handleQuickCreate}
         />
       </div>
       <div className="w-full max-h-52  overflow-y-auto ">
-        {tagsList?.map((t) => (
+        {filterTagList?.map((t) => (
           <TagOption
             key={t.id}
             info={t}
@@ -101,10 +118,21 @@ export const ColorPikcer: IColorTagComponent["TagPicker"] = ({
             }}
           />
         ))}
-        {!tagsList?.length && (
+        {!tagsList?.length && !searchValue && (
           <div className="w-full h-full flex items-center justify-center text-gray-400 py-5">
-            <div></div>
             <span>暂无数据</span>
+          </div>
+        )}
+        {!filterTagList?.length && searchValue && (
+          <div className="w-full h-full flex items-center justify-center text-gray-400 py-5 px-3">
+            <span>
+              无标签 {searchValue} 回车
+              <AddColorTagSvg
+                style={{ display: "inline", verticalAlign: "-3px" }}
+                className="w-3 mx-1"
+              />
+              创建
+            </span>
           </div>
         )}
       </div>
@@ -114,7 +142,7 @@ export const ColorPikcer: IColorTagComponent["TagPicker"] = ({
         text="创建标签"
         onClick={onCreateClick}
       />
-      {Boolean(tagsList?.length )&& (
+      {Boolean(tagsList?.length) && (
         <ActionBar
           leftSvg={<Cog />}
           rightSvg={<ChevronRight />}

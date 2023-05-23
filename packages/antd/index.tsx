@@ -29,10 +29,20 @@ export const Dropdown: IBaseUiKit["Dropdown"] = (props) => {
 };
 
 export const Input: IBaseUiKit["Input"] = React.forwardRef((props, ref) => {
-  const { onChange, ...other } = props;
+  const { onChange, onEnter, ...other } = props;
+
+  const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      e.stopPropagation();
+      onEnter?.();
+    }
+  };
+  
   return (
     <InputBase
       ref={ref}
+      onKeyDown={handleKeyDown}
       {...other}
       onChange={(e) => {
         onChange?.(e.target.value);

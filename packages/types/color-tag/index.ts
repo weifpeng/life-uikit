@@ -16,9 +16,11 @@ type TagItemsType = React.FC<TagItemsProps>;
 interface TagPickerProps extends IBaseProps {
   value?: string[];
   onChange?: (checkedIds: string[]) => void;
+  onSearchChange?: (val: string) => void;
+  searchValue?: string;
   tagsList?: ITagInfo[];
   onCreated?: (id: string) => void;
-  onCreateClick?: () => void;
+  onCreateClick?: (info?: Partial<ITagInfo>) => void;
   onManagementClick?: () => void;
   spinning?: boolean;
   showFooter?: boolean;

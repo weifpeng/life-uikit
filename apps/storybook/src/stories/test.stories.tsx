@@ -30,13 +30,14 @@ const getTagList: ITagService["getTagList"] = (param) => {
     });
   }
 
+
   return new Promise((r, j) => {
     setTimeout(() => {
       r({
         data: _tagList.slice(0, param.limit).map((t) => ({
           ...t,
-          id: `${param.offset}-${t.id}`,
-          name: `${param.offset}-${t.name}`,
+          id: `${t.id}`,
+          name: `${t.name}`,
         })),
         count: _tagList.length * 3,
       });

@@ -14,7 +14,8 @@ interface InputTypeProps extends IBaseProps {
   placeholder?: string;
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;
-};
+  onEnter?: () => void;
+}
 type InputType = React.FC<InputTypeProps>;
 
 // Button

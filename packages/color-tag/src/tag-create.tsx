@@ -65,6 +65,7 @@ export const TagCreate: IColorTagComponent["TagCreate"] = ({
   value,
   successCallback,
 }) => {
+  console.log('value', value)
   const { uiKit } = useCtx();
 
   const setColor = (color: string) => {
