@@ -22,6 +22,9 @@ importers:
 
   apps/storybook:
     dependencies:
+      '@fluentui/react-components':
+        specifier: ^9.7.2
+        version: 9.7.2(@types/react-dom@18.2.3)(@types/react@18.2.6)(react-dom@18.2.0)(react@18.2.0)(scheduler@0.20.2)
       '@life-uikit/antd':
         specifier: workspace:*
         version: link:../../packages/antd
