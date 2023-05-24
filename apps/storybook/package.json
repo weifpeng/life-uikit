@@ -16,6 +16,7 @@
     "@life-uikit/global-css": "workspace:*",
     "@life-uikit/types": "workspace:*",
     "antd": "^5.5.0",
+    "@fluentui/react-components": "^9.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
