@@ -35,6 +35,6 @@ yarn-error.log*
 # vercel
 .vercel
 
-dist
+dist/
 storybook-static/
 
