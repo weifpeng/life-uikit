@@ -3,11 +3,10 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "dev": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build": "storybook build"
   },
   "dependencies": {
     "@life-uikit/antd": "workspace:*",
