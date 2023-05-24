@@ -58,6 +58,7 @@ export interface IColorTagProps extends IBaseProps {
   slots: IColorTagComponent;
   value?: string[];
   onChange?: (ids: string[]) => void;
+  children?: React.ReactNode;
 }
 
 export type ColorTagType = React.FC<IColorTagProps>;

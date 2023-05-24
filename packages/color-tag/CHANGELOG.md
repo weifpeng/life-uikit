@@ -1,5 +1,17 @@
 # @life-uikit/color-tag
 
+## 2.0.1
+
+### Patch Changes
+
+- fix types
+
+## 2.0.0
+
+### Major Changes
+
+- export more module
+
 ## 1.1.7
 
 ### Patch Changes

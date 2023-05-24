@@ -1,5 +1,19 @@
 # @life-uikit/storybook
 
+## 0.0.11
+
+### Patch Changes
+
+- Updated dependencies
+  - @life-uikit/color-tag@2.0.1
+
+## 0.0.10
+
+### Patch Changes
+
+- Updated dependencies
+  - @life-uikit/color-tag@2.0.0
+
 ## 0.0.9
 
 ### Patch Changes

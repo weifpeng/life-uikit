@@ -1,6 +1,6 @@
 {
   "name": "@life-uikit/color-tag",
-  "version": "1.1.7",
+  "version": "2.0.1",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -34,7 +34,7 @@
     "dist"
   ],
   "main": "./dist/color-tag.es.js",
-  "types": "./dist/packages/color-tag/src/index.d.ts",
+  "types": "./dist/packages/color-tag/index.d.ts",
   "publishConfig": {
     "access": "public"
   }

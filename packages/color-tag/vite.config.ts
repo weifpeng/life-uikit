@@ -24,9 +24,8 @@ export default defineConfig({
   plugins: [
     react(),
     dts({
-      // insertTypesEntry: true,
     }),
-    svgr({ exportAsDefault: true })
+    svgr({ exportAsDefault: true }),
   ],
   resolve: {},
 });

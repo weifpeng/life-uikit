@@ -12,6 +12,7 @@ export const ColorTag: ColorTagType = ({
   style,
   value = [],
   onChange,
+  children,
 }) => {
   const {
     uiKit,
@@ -68,6 +69,8 @@ export const ColorTag: ColorTagType = ({
     return data?.data?.filter((d) => value?.includes(d.id));
   }, [data, value]);
 
+  console.log("children", children);
+
   return (
     <div className={cn("flex items-center", className)} style={style}>
       <slots.TagItems tagsList={selectedTagList} onRemove={handleRemove} />
@@ -113,11 +116,16 @@ export const ColorTag: ColorTagType = ({
         )}
         placement="bottomLeft"
       >
-        <div className=" w-5 h-5 rounded-full hover:bg-gray-100 cursor-pointer border flex justify-center items-center bg-white active:bg-gray-200 transition-all ">
-          <PlusSvg
-            className="text-xs "
-            style={{ color: "black", fontSize: "10px" }}
-          />
+        <div>
+          {children}
+          {!children && (
+            <div className=" w-5 h-5 rounded-full hover:bg-gray-100 cursor-pointer border flex justify-center items-center bg-white active:bg-gray-200 transition-all ">
+              <PlusSvg
+                className="text-xs "
+                style={{ color: "black", fontSize: "10px" }}
+              />
+            </div>
+          )}
         </div>
       </uiKit.Dropdown>
       <uiKit.Modal

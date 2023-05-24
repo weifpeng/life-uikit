@@ -1,7 +1,7 @@
 {
   "name": "@life-uikit/storybook",
   "private": true,
-  "version": "0.0.9",
+  "version": "0.0.11",
   "scripts": {
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
@@ -9,18 +9,19 @@
     "build": "storybook build"
   },
   "dependencies": {
+    "@fluentui/react-components": "^9.7.2",
     "@life-uikit/antd": "workspace:*",
-    "@life-uikit/fluentui": "workspace:*",
     "@life-uikit/color-tag": "workspace:*",
     "@life-uikit/context": "workspace:*",
+    "@life-uikit/fluentui": "workspace:*",
     "@life-uikit/global-css": "workspace:*",
     "@life-uikit/types": "workspace:*",
     "antd": "^5.5.0",
-    "@fluentui/react-components": "^9.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@storybook/addon-docs": "^7.0.17",
     "@storybook/addon-essentials": "^7.0.12",
     "@storybook/addon-interactions": "^7.0.12",
     "@storybook/addon-links": "^7.0.12",
