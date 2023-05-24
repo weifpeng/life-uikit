@@ -14,6 +14,7 @@ export const Input: IBaseUiKit["Input"] = React.forwardRef((props, ref) => {
   const { onChange, onEnter } = props;
 
   const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
+    console.log("handle key down");
     if (e.key === "Enter") {
       e.preventDefault();
       e.stopPropagation();
