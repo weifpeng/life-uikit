@@ -43,14 +43,15 @@ export const TagManagement: IColorTagComponent["TagManagement"] = ({
     }
   };
 
-  const handleRemove=async (id:string)=>{
-    try{
-      setLoading(true)
-      await onDelete?.(id)
-    }catch{}finally{
-      setLoading(false)
+  const handleRemove = async (id: string) => {
+    try {
+      setLoading(true);
+      await onDelete?.(id);
+    } catch {
+    } finally {
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <uiKit.Spin spinning={loading}>
@@ -74,7 +75,7 @@ export const TagManagement: IColorTagComponent["TagManagement"] = ({
               {t.id === activeInfo?.id ? (
                 <uiKit.Input
                   onChange={handleNameChange}
-                  ref={(r) => (inputRef.current = r)}
+                  ref={(r: any) => (inputRef.current = r)}
                   prefix={
                     <div
                       style={{ backgroundColor: t.color }}

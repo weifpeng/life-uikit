@@ -36,10 +36,10 @@ const ColorItems: React.FC<IColorItemProps> = ({
 }) => {
   return (
     <div className="flex justify-between flex-wrap">
-      {colorList.map((c) => (
+      {colorList?.map((c) => (
         <div
           onClick={() => {
-            onChange(c);
+            onChange?.(c);
           }}
           key={c}
           className={cn(

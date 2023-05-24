@@ -1,6 +1,6 @@
 {
   "name": "@life-uikit/color-tag",
-  "version": "1.1.0",
+  "version": "1.1.7",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,11 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "@life-uikit/assets": "workspace:*",
-    "@life-uikit/context": "workspace:*",
     "@life-uikit/global-css": "workspace:*",
     "@life-uikit/types": "workspace:*",
     "classnames": "^2.3.2",
-    "react": "^18.2.0",
     "swr": "^2.1.5"
   },
   "devDependencies": {
@@ -25,13 +23,18 @@
     "postcss": "^8.4.23",
     "tailwindcss": "^3.3.2",
     "vite": "^4.3.2",
-    "vite-plugin-dts": "^2.3.0"
+    "vite-plugin-dts": "^2.3.0",
+    "vite-plugin-svgr": "^3.2.0"
+  },
+  "peerDependencies": {
+    "@life-uikit/context": "workspace:*",
+    "react": "^18.2.0"
   },
   "files": [
     "dist"
   ],
   "main": "./dist/color-tag.es.js",
-  "types": "./dist/packages/color-tag/src/color-tag.d.ts",
+  "types": "./dist/packages/color-tag/src/index.d.ts",
   "publishConfig": {
     "access": "public"
   }

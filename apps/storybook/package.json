@@ -1,7 +1,7 @@
 {
   "name": "@life-uikit/storybook",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.9",
   "scripts": {
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
