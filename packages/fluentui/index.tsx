@@ -11,7 +11,7 @@ import { Spin } from "./components/Spin";
 import cn from "classnames";
 
 export const Input: IBaseUiKit["Input"] = React.forwardRef((props, ref) => {
-  const { onChange, onEnter, ...other } = props;
+  const { onChange, onEnter } = props;
 
   const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
     if (e.key === "Enter") {

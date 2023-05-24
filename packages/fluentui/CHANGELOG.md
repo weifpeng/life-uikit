@@ -1,6 +1,6 @@
-# @life-uikit/antd
+# @life-uikit/fluentui
 
-## 2.1.0
+## 1.1.0
 
 ### Minor Changes
 
@@ -11,9 +11,3 @@
 - Updated dependencies [e9e5ada]
   - @life-uikit/context@1.1.0
   - @life-uikit/types@1.1.0
-
-## 2.0.0
-
-### Major Changes
-
-- 38cde63: test update
