@@ -1,0 +1,27 @@
+{
+  "name": "@life-uikit/fluentui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@life-uikit/context": "workspace:*",
+    "@life-uikit/types": "workspace:*",
+    "classnames": "^2.3.2"
+  },
+  "peerDependencies": {
+    "@fluentui/react-components": "^9.7.2",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.6"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -30,8 +30,6 @@ export const Dropdown: IBaseUiKit["Dropdown"] = (props) => {
 
 export const Input: IBaseUiKit["Input"] = React.forwardRef((props, ref) => {
   const { onChange, onEnter, ...other } = props;
-  console.log('test')
-
   const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -56,7 +54,7 @@ export const Button: IBaseUiKit["Button"] = (props) => {
   return <ButtonBase {...props} />;
 };
 
-export const Modal: IBaseUiKit["Button"] = (props) => {
+export const Modal: IBaseUiKit["Modal"] = (props) => {
   return <ModalBase destroyOnClose {...props} />;
 };
 

@@ -28,7 +28,7 @@ interface ButtonTypeProps extends IBaseProps {
 type ButtonType = React.FC<ButtonTypeProps>;
 
 // Modal
-type ModalTypeProps = {
+interface ModalTypeProps extends IBaseProps {
   children?: React.ReactNode;
   zIndex?: number;
   width?: string | number;
@@ -36,7 +36,8 @@ type ModalTypeProps = {
   visible?: boolean;
   onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onCancel?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-};
+  afterOpenChange?: (open?: boolean) => void;
+}
 type ModalType = React.FC<ModalTypeProps>;
 
 // Spin
@@ -47,14 +48,14 @@ type SpinTypeProps = {
 type SpinType = React.FC<SpinTypeProps>;
 
 // Dropdown
-type DropdownProps = {
+interface DropdownProps extends IBaseProps {
   children?: React.ReactNode;
   overlay?: React.FC<any>;
   visible?: boolean;
   onVisibleChange?: (v: boolean) => void;
   placement?: "topLeft" | "bottomLeft";
   overlayStyle?: React.CSSProperties;
-};
+}
 type DropdownType = React.FC<DropdownProps>;
 
 export interface IBaseUiKit {

@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@life-uikit/antd": "workspace:*",
+    "@life-uikit/fluentui": "workspace:*",
     "@life-uikit/color-tag": "workspace:*",
     "@life-uikit/context": "workspace:*",
     "@life-uikit/global-css": "workspace:*",
