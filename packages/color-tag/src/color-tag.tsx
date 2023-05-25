@@ -69,8 +69,6 @@ export const ColorTag: ColorTagType = ({
     return data?.data?.filter((d) => value?.includes(d.id));
   }, [data, value]);
 
-  console.log("children", children);
-
   return (
     <div className={cn("flex items-center", className)} style={style}>
       <slots.TagItems tagsList={selectedTagList} onRemove={handleRemove} />

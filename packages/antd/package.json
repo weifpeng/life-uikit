@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "@life-uikit/context": "workspace:*",
-    "@life-uikit/types": "workspace:*"
+    "@life-uikit/types": "workspace:*",
+    "classnames": "^2.3.2"
   },
   "peerDependencies": {
     "antd": "^5.5.0",

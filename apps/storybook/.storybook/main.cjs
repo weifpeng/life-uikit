@@ -1,9 +1,12 @@
 const svgr = require("vite-plugin-svgr").default;
 const { mergeConfig } = require("vite");
+const { readFileSync } = require("fs");
+const { loadCsf } = require("@storybook/csf-tools");
 module.exports = {
   stories: [
-    "../src/**/*.stories.@(js|jsx|ts|tsx)",
     "../src/**/*.mdx",
+    "../src/**/*.stories.mdx",
+    "../src/**/*.stories.@(js|jsx|ts|tsx)",
   ],
   addons: [
     "@storybook/addon-docs",

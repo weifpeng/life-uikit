@@ -4,6 +4,7 @@ import { IColorTagComponent } from "@life-uikit/types/color-tag";
 export const TagItems: IColorTagComponent["TagItems"] = ({
   tagsList,
   onRemove,
+  readOnly
 }) => {
   return (
     <div className="flex items-center flex-wrap" >
@@ -14,12 +15,12 @@ export const TagItems: IColorTagComponent["TagItems"] = ({
             style={{ backgroundColor: v.color }}
           ></div>
           <div className="mr-1 text-gray-600 text-xs ">{v.name}</div>
-          <div
+          {!readOnly && <div
             className=" text-gray-500 hover:text-gray-700 hover:bg-slate-100 cursor-pointer mr-1"
             onClick={() => onRemove?.(v.id)}
           >
             <CloseIcon className="w-2 h-2"   />
-          </div>
+          </div>}
         </div>
       ))}
     </div>

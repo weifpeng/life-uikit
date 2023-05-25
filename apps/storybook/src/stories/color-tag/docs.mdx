@@ -1,0 +1,27 @@
+import { Meta, Canvas, Story, ArgTypes } from "@storybook/addon-docs";
+import * as PrimaryStories from "./primary.stories";
+
+<Meta title="Components/ColorTag/Doc" of={PrimaryStories} />
+
+# Color Tag
+
+标签选择器
+
+<Canvas>
+  <Story of={PrimaryStories.Primary} />
+</Canvas>
+<ArgTypes of={PrimaryStories} />
+
+ 
+自定义触发区域
+
+<Canvas>
+  <Story of={PrimaryStories.CustomerTigger} />
+</Canvas>
+
+直接使用 tag item
+
+<Canvas>
+  <Story of={PrimaryStories.UseTagItems} />
+</Canvas>
+1

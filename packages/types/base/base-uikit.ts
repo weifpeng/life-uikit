@@ -55,6 +55,7 @@ interface DropdownProps extends IBaseProps {
   onVisibleChange?: (v: boolean) => void;
   placement?: "topLeft" | "bottomLeft";
   overlayStyle?: React.CSSProperties;
+  renderInParent?: boolean;
 }
 type DropdownType = React.FC<DropdownProps>;
 

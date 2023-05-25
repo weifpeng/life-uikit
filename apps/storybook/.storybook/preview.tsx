@@ -7,36 +7,29 @@ import { Preview } from "@storybook/react";
 import React from "react";
 import * as services from "./services";
 
-// export const parameters = {
-//   actions: { argTypesRegex: "^on[A-Z].*" },
-//   controls: {
-//     matchers: {
-//       color: /(background|color)$/i,
-//       date: /Date$/,
-//     },
-//   },
-// };
-
-const withThemeProvider = (Story, context) => {
+const Layout = ({ them, children }) => {
   return (
     <Context.Provider
       value={{
-        uiKit:
-          context.globals.theme === "antd" ? AntdBaseUikit : FluentuiBaseUikit,
+        uiKit: them === "antd" ? AntdBaseUikit : FluentuiBaseUikit,
         services: {
           ...services,
         },
-        getRootContainer: () => {
-          return document.getElementById("storybook-root")!;
-        },
       }}
     >
-      <FluentProvider theme={teamsLightTheme}>
-        <Story />
-      </FluentProvider>
+      <FluentProvider theme={teamsLightTheme}><div className="p-5" >{children}</div></FluentProvider>
     </Context.Provider>
   );
 };
+
+const withThemeProvider = (Story, context) => {
+  return (
+    <Layout them={context.globals.theme}>
+      <Story />
+    </Layout>
+  );
+};
+
 
 const preview: Preview = {
   decorators: [withThemeProvider],

@@ -7,7 +7,8 @@ import {
   Modal as ModalBase,
   Spin,
 } from "antd";
-import React from "react";
+import React, { useMemo } from "react";
+import cn from "classnames";
 
 export const Dropdown: IBaseUiKit["Dropdown"] = (props) => {
   const { getRootContainer } = useCtx();
@@ -37,7 +38,7 @@ export const Input: IBaseUiKit["Input"] = React.forwardRef((props, ref) => {
       onEnter?.();
     }
   };
-  
+
   return (
     <InputBase
       ref={ref}
@@ -51,7 +52,11 @@ export const Input: IBaseUiKit["Input"] = React.forwardRef((props, ref) => {
 });
 
 export const Button: IBaseUiKit["Button"] = (props) => {
-  return <ButtonBase {...props} />;
+  const className = useMemo(() => {
+    return cn({ ["bg-primary"]: props?.type == "primary" }, props?.className);
+  }, [props?.type, props?.className]);
+
+  return <ButtonBase className={className} {...props} />;
 };
 
 export const Modal: IBaseUiKit["Modal"] = (props) => {
